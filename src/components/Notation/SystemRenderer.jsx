@@ -21,7 +21,7 @@ import {
   StemSlash,
   GraceNotes,
   StickingLabel,
-} from "@/components/notation/Glyphs";
+} from "@/components/Notation/Glyphs";
 
 // Tenor drum -> staff position (in staff-line gaps, positive = below middle).
 // Drums 0-3 = the 4 main tenors on the staff spaces F, A, C, E (ascending

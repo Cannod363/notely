@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { engrave } from "@/lib/engraving";
 import { downloadMusicXML } from "@/lib/musicxml";
-import SystemRenderer from "@/components/notation/SystemRenderer";
+import SystemRenderer from "@/components/Notation/SystemRenderer";
 import { Printer, FileCode2, X } from "lucide-react";
 import { toast } from "sonner";
 

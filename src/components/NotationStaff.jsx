@@ -1,6 +1,6 @@
 import React, { useMemo, useRef, useEffect } from "react";
 import { engrave } from "@/lib/engraving";
-import SystemRenderer from "@/components/notation/SystemRenderer";
+import SystemRenderer from "@/components/Notation/SystemRenderer";
 import { getSettings } from "@/lib/settings";
 
 // Scroll-mode notation staff for the editor and result screens.
