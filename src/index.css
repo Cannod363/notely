@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Notely — palette sampled directly from the Figma mockups */
+    --background: 30 14% 3%;           /* #080706 */
+    --foreground: 40 22% 94%;          /* #F1ECE2 */
+    --card: 48 13% 8%;                 /* #161511 */
+    --card-foreground: 40 22% 94%;
+    --popover: 48 13% 10%;
+    --popover-foreground: 40 22% 94%;
+    --primary: 36 100% 65%;            /* amber #FFB84D */
+    --primary-foreground: 30 20% 6%;
+    --secondary: 38 15% 25%;           /* #4A4337 */
+    --secondary-foreground: 40 22% 94%;
+    --muted: 48 13% 11%;
+    --muted-foreground: 36 25% 64%;    /* #BAA78B */
+    --accent: 38 15% 25%;
+    --accent-foreground: 40 22% 94%;
+    --destructive: 0 78% 58%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 38 15% 25%;              /* #4A4337 */
+    --input: 38 15% 25%;
+    --ring: 36 100% 65%;
+    --gold: 34 53% 44%;                /* heading gold #A97A35 */
+    --success: 84 90% 62%;             /* count-in green */
+    --chart-1: 36 92% 62%;
+    --chart-2: 173 58% 49%;
+    --chart-3: 197 37% 60%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.9rem;
+    --font-heading: 'Sora', ui-sans-serif, system-ui, -apple-system, "SF Pro Display", sans-serif;
+    --font-body: ui-sans-serif, system-ui, -apple-system, "SF Pro Text", sans-serif;
+    --font-display: 'Sora', ui-sans-serif, system-ui, -apple-system, "SF Pro Display", sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --sidebar-background: 30 8% 8%;
+    --sidebar-foreground: 40 22% 94%;
+    --sidebar-primary: 36 92% 62%;
+    --sidebar-primary-foreground: 30 20% 10%;
+    --sidebar-accent: 30 6% 17%;
+    --sidebar-accent-foreground: 40 22% 94%;
+    --sidebar-border: 30 6% 18%;
+    --sidebar-ring: 36 92% 62%;
+  }
+
+  .dark {
+    --background: 30 14% 3%;
+    --foreground: 40 22% 94%;
+    --card: 48 13% 8%;
+    --card-foreground: 40 22% 94%;
+    --popover: 48 13% 10%;
+    --popover-foreground: 40 22% 94%;
+    --primary: 36 100% 65%;
+    --primary-foreground: 30 20% 6%;
+    --secondary: 38 15% 25%;
+    --secondary-foreground: 40 22% 94%;
+    --muted: 48 13% 11%;
+    --muted-foreground: 36 25% 64%;
+    --accent: 38 15% 25%;
+    --accent-foreground: 40 22% 94%;
+    --destructive: 0 78% 58%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 38 15% 25%;
+    --input: 38 15% 25%;
+    --ring: 36 100% 65%;
+    --gold: 34 53% 44%;
+    --success: 84 90% 62%;
+    --chart-1: 36 92% 62%;
+    --chart-2: 173 58% 49%;
+    --chart-3: 197 37% 60%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.9rem;
+    --font-heading: 'Sora', ui-sans-serif, system-ui, -apple-system, "SF Pro Display", sans-serif;
+    --font-body: ui-sans-serif, system-ui, -apple-system, "SF Pro Text", sans-serif;
+    --font-display: 'Sora', ui-sans-serif, system-ui, -apple-system, "SF Pro Display", sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --sidebar-background: 30 8% 8%;
+    --sidebar-foreground: 40 22% 94%;
+    --sidebar-primary: 36 92% 62%;
+    --sidebar-primary-foreground: 30 20% 10%;
+    --sidebar-accent: 30 6% 17%;
+    --sidebar-accent-foreground: 40 22% 94%;
+    --sidebar-border: 30 6% 18%;
+    --sidebar-ring: 36 92% 62%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply text-foreground font-body antialiased;
+    /* The mockups use a flat near-black ground — no gradient wash. */
+    background-color: #080706;
+  }
+}
+
+@layer components {
+  /* Large lowercase page titles ("notely", "library", "settings", "results") */
+  .notely-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    background-image: linear-gradient(100deg, #D6A052 0%, #A97A35 48%, #6E4F22 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+@media print {
+  @page {
+    margin: 0.5in;
+  }
+  body * {
+    visibility: hidden;
+  }
+  .print-layout,
+  .print-layout * {
+    visibility: visible;
+  }
+  .print-layout {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: white;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .print-system {
+    page-break-inside: avoid;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

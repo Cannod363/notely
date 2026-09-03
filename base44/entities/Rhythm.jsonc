@@ -1,0 +1,197 @@
+{
+  "name": "Rhythm",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "default": "Untitled Rhythm"
+    },
+    "instrument": {
+      "type": "string",
+      "enum": [
+        "snare",
+        "tenor"
+      ],
+      "default": "snare"
+    },
+    "tempo_bpm": {
+      "type": "number",
+      "default": 120
+    },
+    "time_signature": {
+      "type": "object",
+      "properties": {
+        "numerator": {
+          "type": "number",
+          "default": 4
+        },
+        "denominator": {
+          "type": "number",
+          "default": 4
+        }
+      },
+      "default": {
+        "numerator": 4,
+        "denominator": 4
+      }
+    },
+    "raw_tap_events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "number"
+          },
+          "velocity": {
+            "type": "number"
+          },
+          "ornament": {
+            "type": "string"
+          },
+          "drum": {
+            "type": "number",
+            "default": 0
+          }
+        }
+      },
+      "default": []
+    },
+    "notation": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "duration_16ths": {
+            "type": "number",
+            "default": 2
+          },
+          "start_time": {
+            "type": "number",
+            "default": 0
+          },
+          "is_rest": {
+            "type": "boolean",
+            "default": false
+          },
+          "ornament": {
+            "type": "string",
+            "default": "none"
+          },
+          "ornaments": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": []
+          },
+          "tuplet": {
+            "type": "string",
+            "default": null
+          },
+          "sticking": {
+            "type": "string",
+            "default": null
+          },
+          "confidence_score": {
+            "type": "number",
+            "default": 1
+          },
+          "velocity": {
+            "type": "number",
+            "default": 0.7
+          },
+          "drum": {
+            "type": "number",
+            "default": 0
+          }
+        }
+      },
+      "default": []
+    },
+    "matched_songs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "song_name": {
+            "type": "string"
+          },
+          "match_confidence": {
+            "type": "number"
+          }
+        }
+      },
+      "default": []
+    },
+    "status": {
+      "type": "string",
+      "default": "draft"
+    },
+    "locked": {
+      "type": "boolean",
+      "default": false
+    },
+    "archived": {
+      "type": "boolean",
+      "default": false
+    },
+    "archived_date": {
+      "type": "string",
+      "default": null
+    }
+  },
+  "required": [
+    "title"
+  ],
+  "rls": {
+    "create": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

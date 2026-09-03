@@ -1,0 +1,64 @@
+{
+  "name": "PatternLibrary",
+  "type": "object",
+  "properties": {
+    "song_name": {
+      "type": "string"
+    },
+    "reference_pattern": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "duration_16ths": {
+            "type": "number"
+          },
+          "is_rest": {
+            "type": "boolean",
+            "default": false
+          },
+          "ornament": {
+            "type": "string",
+            "default": "none"
+          },
+          "ornaments": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": []
+          }
+        }
+      },
+      "default": []
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    }
+  },
+  "required": [
+    "song_name"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": null,
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
